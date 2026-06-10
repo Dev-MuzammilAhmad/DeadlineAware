@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: var(--primary);
+  --color-bg-base: var(--background);
+  --color-bg-surface: var(--surface);
+  --color-text-main: var(--text-primary);
+  --color-text-sub: var(--text-secondary);
+  --color-border-main: var(--border);
+  --color-danger-main: var(--danger);
+  --color-warning-main: var(--warning);
+}
+
+:root {
+  --primary: #16A34A;
+  --background: #FFFFFF;
+  --surface: #F9FAFB;
+  --text-primary: #111827;
+  --text-secondary: #6B7280;
+  --border: #E5E7EB;
+  --danger: #EF4444;
+  --warning: #F59E0B;
+}
+
+.dark {
+  --primary: #16A34A;
+  --background: #111827;
+  --surface: #1F2937;
+  --text-primary: #F9FAFB;
+  --text-secondary: #9CA3AF;
+  --border: #374151;
+  --danger: #F87171;
+  --warning: #FBBF24;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text-primary);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  margin: 0;
+  padding: 0;
+}
+
+@keyframes toast-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-toast-slide-in {
+  animation: toast-slide-in 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
