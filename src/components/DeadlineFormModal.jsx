@@ -95,6 +95,14 @@ export default function DeadlineFormModal({ isOpen, onClose, onSubmit, initialDa
     const [hours, minutes] = data.dueTimeStr.split(':').map(Number)
     const combinedDate = new Date(year, month - 1, day, hours, minutes)
 
+    const now = new Date()
+    if (combinedDate <= now) {
+      const errorMessage = 'Due date and time must be in the future. Please choose a correct date and time.'
+      setFormError(errorMessage)
+      alert(errorMessage)
+      return
+    }
+
     const payload = {
       title: data.title,
       description: data.description || null,
